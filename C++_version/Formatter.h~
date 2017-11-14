@@ -1,0 +1,22 @@
+#include <vector>
+#include <string>
+using namespace std;
+
+// untested
+bool format(string&, vector<string>&);
+
+      
+
+    
+
+      
+
+      
+
+      
+    
+
+    
+    
+      
+      

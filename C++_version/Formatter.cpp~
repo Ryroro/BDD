@@ -1,0 +1,50 @@
+#include "Formatter.h"
+
+using namespace std;
+
+
+// Given the raw input formula string and a vector reference
+// put tokens into the reference
+// if successful, return true
+// if contain unknown character(futher parse error in the future), return false
+bool format(string& s, vector<string>& tokens) {
+  
+  vector<string> tokens;
+  auto begin = s.begin();
+  auto end = s.end();
+
+  while ( begin != end ) {
+    
+    string temp_s;
+    
+    while ( *begin != '(' && *begin != ')' && !isspace(*begin) ) {
+      
+      temp_s.push_back(*begin);
+      
+    }
+
+    tokens.push_back(temp_s);
+
+    string temp_s2;
+
+    if ( *begin == '(' || *begin == ')' ) {
+
+      temp_s2.push_back(*begin);
+
+      tokens.push_back(temp_s2);
+
+    } else if ( isspace(*begin) ) {
+
+      begin++;
+      
+    } else {
+
+      return false;
+      
+    }
+  }
+
+  return true;
+  
+}
+
